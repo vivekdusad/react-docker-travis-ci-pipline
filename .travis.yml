@@ -1,6 +1,6 @@
 deploy:
   provider: heroku
   api_key:
-    secure: "224f36c9-6fe3-4a14-8278-a0e23805c85a"
+    secure: "api_key"
   on:
     branch: master
