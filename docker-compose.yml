@@ -18,3 +18,8 @@ services:
       - /var/app/node_modules
       - .:/var/app
     command: ["npm","run","test"]
+
+
+
+
+

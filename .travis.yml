@@ -1,6 +1,19 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t react-docker-aws:prod -f ./.docker/prod/Dockerfile
+
+script:
+  - docker run -e CI=true react-docker-aws:prod npm run test
+
 deploy:
-  provider: heroku
-  api_key:
-    secure: "api_key"
-  on:
-    branch: master
+  provider: elasticbeanstalk
+  access_key_id: $ACCESS_KEY_ID
+  secret_access_key:
+    secure: "$SECRET_ACCESS_KEY"
+  region: "us-east-1"
+  app: "react-docker"
+  env: "Reactdocker-env"
+  bucket_name: "the-target-S3-bucket"
