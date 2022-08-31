@@ -10,9 +10,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
 
+  build:
     runs-on: ubuntu-latest
+    environment: production
+    
 
     strategy:
       matrix:
